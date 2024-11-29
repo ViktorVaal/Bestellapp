@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bestellapp</title>
+
+    <link rel="icon" type="image/x-icon" href="./assets/Favicon/favicon.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles/standard.css" />
+
+    <script src="./scripts/db.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/template.js"></script>
+    <script src="./scripts/storage.js"></script>
+  </head>
+  <body onload="init()">
+    <header>
+      <img src="./assets/Logo/Bestell App- Logo.svg" alt="" />
+    </header>
+
+    <div class="main-container">
+      <div class="content">
+        <div class="top-picture"></div>
+
+        <div class="restaurant-info"></div>
+
+        <div class="middle-picture"></div>
+
+        <section id="mainDishes" class="main-dishes">
+          <h2>Hauptgerichte</h2>
+        </section>
+
+        <div class="side-dish-img"></div>
+        <section id="sideDishes" class="side-dishes">
+          <h2>Beilagen</h2>
+        </section>
+
+        <div class="dessert-img"></div>
+
+        <section id="dessertDishes" class="dessert-dishes">
+          <h2>Desserts</h2>
+        </section>
+      </div>
+      <div class="baket-container">
+        <div class="your-basket">
+          <h2>Warenkorb</h2>
+          <div class="switch-btn">
+            <div
+              onclick="switchToDelivery()"
+              id="deliveryBtn"
+              class="delivery-btn bg-white"
+            >
+              <div>
+                <img src="./assets/icons/moped.png" alt="" />
+              </div>
+              <div class="delivery-info">
+                <span><strong>Lieferung</strong></span>
+                <span>45-60 min</span>
+              </div>
+            </div>
+            <div
+              onclick="switchToTakeaway()"
+              id="takeawayBtn"
+              class="takeaway-btn"
+            >
+              <div>
+                <img src="./assets/icons/take-away.png" alt="" />
+              </div>
+              <div class="delivery-info">
+                <span><strong>Abholung</strong></span>
+                <span>45-60 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="yourBasket"></div>
+
+          <div id="totalPrice" class="total-price d-none">
+            <table>
+              <tr>
+                <td>Zwischensumme</td>
+                <td id="subtotal"></td>
+              </tr>
+              <tr>
+                <td>Lieferkosten</td>
+                <td id="deliveryPrice"></td>
+              </tr>
+              <tr>
+                <td><strong>Gesamt</strong></td>
+                <td id="totalPrice"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
