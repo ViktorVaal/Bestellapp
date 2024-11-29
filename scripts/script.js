@@ -1,3 +1,6 @@
+let priceIndex;
+let calculatedPrice;
+
 function init() {
   renderMainDishes();
   renderSideDishes();
@@ -32,30 +35,30 @@ function renderDesserts() {
 function addMainDishToBasket(index) {
   let dish = myDishes[0].mainDishes[index];
   if (basket.includes(dish) === false) {
-    basket.push(dish);
-    console.log(basket);
+    basket.push(Object.assign({}, dish));
     document.getElementById("totalPrice").classList.remove("d-none");
     renderBasketMeals();
+    deliveryPrice()
   }
 }
 
 function addSideDishToBasket(index) {
     let dish = myDishes[0].sideDishes[index];
     if (basket.includes(dish) === false) {
-      basket.push(dish);
-      console.log(basket);
+      basket.push(Object.assign({}, dish));
       document.getElementById("totalPrice").classList.remove("d-none");
       renderBasketMeals();
+      deliveryPrice()
     }
   }
 
   function addDessertToBasket(index) {
     let dish = myDishes[0].desserts[index];
     if (basket.includes(dish) === false) {
-      basket.push(dish);
-      console.log(basket);
+      basket.push(Object.assign({}, dish));
       document.getElementById("totalPrice").classList.remove("d-none");
       renderBasketMeals();
+      deliveryPrice()
     }
   }
 
@@ -72,7 +75,8 @@ function renderBasketMeals() {
 
 function countUp(index) {
     let portionsRef = document.getElementsByClassName("portions");
-    portionsRef[index].innerHTML++
+    basket[index].amount++
+    portionsRef[index].innerHTML = basket[index].amount;
     calcPortions(index)
 
 }
@@ -84,20 +88,25 @@ function countDown(index) {
     if (portionsRef[index].innerHTML == 0) {
         deleteBasketMeal(index)
     }
-    
- 
 }
 
 function calcPortions(index) {
     let mealPrice = document.getElementsByClassName("meal-price");
     let portions = document.getElementsByClassName("portions");
-    let dishName = basket[index].name;
-    console.log(basket[index].name);
-    
-    console.log(myDishes.findIndex((elem) => elem["name"] === "Gegrilltes Rindersteak"));
-    let price 
-    let calculatedPrice = basket[index].price * portions[index].innerHTML;
-     mealPrice[index].innerHTML = calculatedPrice.toFixed(2).replace(".", ",")
+  if (myDishes[0].mainDishes.findIndex((elem) => elem["name"] === basket[index].name) !== -1) {
+    priceIndex = myDishes[0].mainDishes.findIndex((elem) => elem["name"] === basket[index].name)
+    calculatedPrice = myDishes[0].mainDishes[priceIndex].price * parseInt(portions[index].innerHTML);
+  } else if (myDishes[0].sideDishes.findIndex((elem) => elem["name"] === basket[index].name) !== -1) {
+    priceIndex = myDishes[0].sideDishes.findIndex((elem) => elem["name"] === basket[index].name)
+    calculatedPrice = myDishes[0].sideDishes[priceIndex].price * portions[index].innerHTML;
+  } else {
+    priceIndex = myDishes[0].desserts.findIndex((elem) => elem["name"] === basket[index].name);
+    calculatedPrice = myDishes[0].desserts[priceIndex].price * portions[index].innerHTML;
+  }
+     mealPrice[index].innerHTML = calculatedPrice.toFixed(2).replace(".", ",") + "€";
+     console.log(basket);
+     console.log(myDishes);
+     basket[index].price = calculatedPrice;
 }
 
 function deleteBasketMeal(index) {
@@ -121,8 +130,8 @@ function deliveryPrice() {
     let deliveryRef = document.getElementById("deliveryPrice");
     let deliveryBtnRef = document.getElementById("deliveryBtn");
     if (deliveryBtnRef.classList.contains("bg-white")) {
-        deliveryRef.innerHTML = "5,00€";
+        deliveryRef.innerHTML = 5.00.toFixed(2).replace(".", ",") + "€";
     } else {
-        deliveryRef.innerHTML = "";
+        deliveryRef.innerHTML = 0.00.toFixed(2).replace(".", ",") + "€";
     }
 }

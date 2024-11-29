@@ -48,7 +48,7 @@ function basketTemplate(index) {
             <h3>${basket[index].name}</h3>
             <div class="meal-amount">
               <button class="btn" onclick="countUp(${index})">+</button>
-              <span class="portions">1</span>
+              <span class="portions">${basket[index].amount}</span>
               <button class="btn" onclick="countDown(${index})">-</button>
               <span class="meal-price">${basket[index].price.toFixed(2).replace(".", ",")}€</span>
               <img onclick="deleteBasketMeal(${index})" src="./assets/icons/delete.png" alt="" />
