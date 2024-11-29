@@ -37,6 +37,8 @@ function addMainDishToBasket(index) {
   if (basket.includes(dish) === false) {
     basket.push(Object.assign({}, dish));
     document.getElementById("totalPrice").classList.remove("d-none");
+    console.log(basket);
+    console.log(myDishes);
     renderBasketMeals();
     deliveryPrice()
   }
@@ -83,7 +85,8 @@ function countUp(index) {
 
 function countDown(index) {
     let portionsRef = document.getElementsByClassName("portions");
-    portionsRef[index].innerHTML--
+    basket[index].amount--
+    portionsRef[index].innerHTML = basket[index].amount
     calcPortions(index);
     if (portionsRef[index].innerHTML == 0) {
         deleteBasketMeal(index)
