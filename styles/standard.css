@@ -33,3 +33,11 @@ body {
     display: none;
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.td-right {
+    text-align: end;
+}
+

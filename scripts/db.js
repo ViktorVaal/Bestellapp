@@ -1,5 +1,7 @@
 let myDishes = [
   {
+    name : "pizzaria",
+    location: "Lieferstraße 5, 55555 Lieferstadt",
     mainDishes: [
       {
         "name": "Spaghetti Carbonara",

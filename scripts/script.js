@@ -7,6 +7,13 @@ function init() {
   renderDesserts();
 }
 
+function calculation() {
+  deliveryPrice()
+  calcPortions()
+  calcSubtotal()
+  clacTotalPrice()
+}
+
 function renderMainDishes() {
   let mainDishContainer = document.getElementById("mainDishes");
   for (let mainIndex = 0; mainIndex < myDishes[0].mainDishes.length; mainIndex++) {
@@ -40,8 +47,7 @@ function addMainDishToBasket(index) {
     console.log(basket);
     console.log(myDishes);
     renderBasketMeals();
-    deliveryPrice()
-    calcPortions()
+    calculation()
   }
 }
 
@@ -51,8 +57,7 @@ function addSideDishToBasket(index) {
       basket.push(dish);
       document.getElementById("totalPrice").classList.remove("d-none");
       renderBasketMeals();
-      deliveryPrice()
-      calcPortions()
+      calculation()
     }
   }
 
@@ -62,8 +67,7 @@ function addSideDishToBasket(index) {
       basket.push(dish);
       document.getElementById("totalPrice").classList.remove("d-none");
       renderBasketMeals();
-      deliveryPrice()
-      calcPortions()
+      calculation()
     }
   }
 
@@ -72,8 +76,8 @@ function renderBasketMeals() {
   basketRef.innerHTML = "";
   for (let index = 0; index < basket.length; index++) {
     basketRef.innerHTML += basketTemplate(index);
-  }
-  if (basketRef.innerHTML === "") {
+    }
+    if (basketRef.innerHTML === "") {
     document.getElementById("totalPrice").classList.add("d-none");
   }
 }
@@ -81,16 +85,15 @@ function renderBasketMeals() {
 function countUp(index) {
     let portionsRef = document.getElementsByClassName("portions");
     basket[index].amount++
-    portionsRef[index].innerHTML = basket[index].amount;
-    calcPortions(index)
-
+    portionsRef[index].innerHTML = basket[index].amount + "x";
+    calculation()
 }
 
 function countDown(index) {
     let portionsRef = document.getElementsByClassName("portions");
     basket[index].amount--
-    portionsRef[index].innerHTML = basket[index].amount
-    calcPortions(index);
+    portionsRef[index].innerHTML = basket[index].amount + "x"
+    calculation()
     if (portionsRef[index].innerHTML == 0) {
         deleteBasketMeal(index)
     }
@@ -102,29 +105,29 @@ function calcPortions() {
     for (let index = 0; index < basket.length; index++) {
       portions.innerHTML = basket[index].amount;
     let newMealPrice = basket[index].amount * basket[index].price;
-    mealPrice[index].innerHTML = newMealPrice.toFixed(2).replace(".", ",");
-      
+    mealPrice[index].innerHTML = newMealPrice.toFixed(2).replace(".", ",") + "€"; 
     }
-   
 }
 
 function deleteBasketMeal(index) {
-  basket[index].amount = 1;
+    basket[index].amount = 1;
     basket.splice(index, 1);
     renderBasketMeals()
-    calcPortions()
+    calculation()
 }
 
 function switchToDelivery() {
-  document.getElementById("takeawayBtn").classList.remove("bg-white");
-  document.getElementById("deliveryBtn").classList.add("bg-white");
-  deliveryPrice()
+    document.getElementById("takeawayBtn").classList.remove("bg-white");
+    document.getElementById("deliveryBtn").classList.add("bg-white");
+    deliveryPrice()
+    clacTotalPrice()
 }
 
 function switchToTakeaway() {
   document.getElementById("takeawayBtn").classList.add("bg-white");
   document.getElementById("deliveryBtn").classList.remove("bg-white");
   deliveryPrice()
+  clacTotalPrice()
 }
 
 function deliveryPrice() {
@@ -135,4 +138,23 @@ function deliveryPrice() {
     } else {
         deliveryRef.innerHTML = 0.00.toFixed(2).replace(".", ",") + "€";
     }
+}
+
+function calcSubtotal() {
+  let subTotalRef = document.getElementById("subtotal");
+  let subTotal = 0;
+  let mealPrice = document.getElementsByClassName("meal-price");
+  for (let index = 0; index < mealPrice.length; index++) {
+  subTotal += parseFloat((mealPrice[index].innerHTML).replace(",", "."));   
+  subTotalRef.innerHTML = subTotal.toFixed(2).replace(".", ",") + "€"
+  }
+}
+
+function clacTotalPrice() {
+  let allRoundPriceRef = document.getElementById("allRoundPrice");
+  let subTotalRef = document.getElementById("subtotal");
+  let deliveryRef = document.getElementById("deliveryPrice");
+  let totalPrice = 0;
+  totalPrice = parseFloat(deliveryRef.innerHTML.replace(",", ".")) + parseFloat(subTotalRef.innerHTML.replace(",", "."));
+  allRoundPriceRef.innerHTML = totalPrice.toFixed(2).replace(".", ",") + "€"
 }

@@ -7,7 +7,7 @@ function mainDishesTemplate(mainIndex) {
               <span class="dish-price">${myDishes[0].mainDishes[mainIndex].price.toFixed(2).replace(".", ",")}€</span>
             </div>
 
-            <div class="btn" onclick="addMainDishToBasket(${mainIndex})">
+            <div class="btn" >
               +
             </div>
           </div>`
@@ -48,7 +48,7 @@ function basketTemplate(index) {
             <h3>${basket[index].name}</h3>
             <div class="meal-amount">
               <button class="btn" onclick="countUp(${index})">+</button>
-              <span class="portions">${basket[index].amount}</span>
+              <span class="portions">${basket[index].amount}x</span>
               <button class="btn" onclick="countDown(${index})">-</button>
               <span class="meal-price">${basket[index].price.toFixed(2).replace(".", ",")}€</span>
               <img onclick="deleteBasketMeal(${index})" src="./assets/icons/delete.png" alt="" />
