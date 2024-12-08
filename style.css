@@ -1,12 +1,13 @@
 header {
   background-color: #ff8000;
-  
 }
 
 header img {
   height: 80px;
   padding: 16px 8px;
 }
+
+
 
 .main-container {
   display: flex;
@@ -17,7 +18,41 @@ header img {
   box-shadow: -3px 0px 8px rgba(0, 0, 0, 0.2) inset;
 }
 
-.baket-container {
+.restaurant-info {
+ 
+  margin: 8px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+nav {
+  box-shadow: -3px -3px 8px rgba(0, 0, 0, 0.2) inset;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+nav img {
+  height: 40px;
+}
+
+.rating {
+  color: #ff8000;
+}
+
+.basket-container {
   width: 300px;
   display: flex;
   justify-content: center;
@@ -35,18 +70,21 @@ header img {
 }
 
 #yourBasket {
-    width: 100%;
+  width: 100%;
 }
 
 .top-picture {
   height: 160px;
-  background-image: url("./assets/img/meat.jpg");
+  background-image: url("./assets/img/italy-2273767_1280.jpg");
   background-size: cover;
   background-position: center;
+  display: flex;
+  justify-content: center;
 }
 
-.restaurant-info {
+#restaurant-icon {
   height: 120px;
+  transform: translateY(95px);
 }
 
 .middle-picture {
@@ -54,11 +92,11 @@ header img {
   background-image: url("./assets/img/meat.jpg");
   background-size: cover;
   background-position: bottom;
-  margin: 0 8px;
+  margin: 8px 8px;
 }
 
 h2 {
-  margin: 0 8px;
+  margin: 16px 8px;
 }
 
 h3 {
@@ -140,11 +178,11 @@ h3 {
 }
 
 .basket-meal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
   margin: 24px 0;
   width: 100%;
 }
@@ -163,15 +201,93 @@ h3 {
 }
 
 .meal-amount img {
-    cursor: pointer;
-    height: 24px;
-    color: #ff8000;
+  cursor: pointer;
+  height: 24px;
+  color: #ff8000;
+}
+
+#delete-btn {
+  height: 30px;
+}
+
+#delete-btn:hover {
+  border: solid 1px #ff8000;
+  border-radius: 50%;
 }
 
 .total-price {
-    width: 100%;
+  width: 100%;
 }
 
 .total-price table {
-    width: 100%;
+  width: 100%;
+}
+
+.order-btn {
+  cursor: pointer;
+  margin-top: 16px;
+  background-color: #ff8000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.order-btn:active {
+  transform: scale(0.98);
+}
+
+.basket-btn {
+  display: none;
+  background-color: white;
+  height: 80px;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  padding: 8px;
+}
+
+#openOverlay {
+  background-color: #ff8000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.order-received {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: white;
+  height: 160px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+#closeModal {
+  cursor: pointer;
+  background-color: #ff8000;
+  padding: 8px 12px;
+  border-radius: 2px;
 }

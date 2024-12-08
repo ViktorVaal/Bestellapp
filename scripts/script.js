@@ -44,8 +44,6 @@ function addMainDishToBasket(index) {
   if (basket.includes(dish) === false) {
     basket.push(dish);
     document.getElementById("totalPrice").classList.remove("d-none");
-    console.log(basket);
-    console.log(myDishes);
     renderBasketMeals();
     calculation()
   }
@@ -94,7 +92,7 @@ function countDown(index) {
     basket[index].amount--
     portionsRef[index].innerHTML = basket[index].amount + "x"
     calculation()
-    if (portionsRef[index].innerHTML == 0) {
+    if (portionsRef[index].innerHTML == "0x") {
         deleteBasketMeal(index)
     }
 }
@@ -157,4 +155,23 @@ function clacTotalPrice() {
   let totalPrice = 0;
   totalPrice = parseFloat(deliveryRef.innerHTML.replace(",", ".")) + parseFloat(subTotalRef.innerHTML.replace(",", "."));
   allRoundPriceRef.innerHTML = totalPrice.toFixed(2).replace(".", ",") + "€"
+}
+
+function takeOrder() {
+  for (let index = 0; index < basket.length; index++) {
+    basket[index].amount = 1;
+  }
+  basket.splice(0, basket.length);
+  renderBasketMeals()
+  OpenModal()
+}
+
+function OpenModal() {
+  let modalRef = document.getElementById("modal");
+  modalRef.style.display = "flex"
+}
+
+function closeModal() {
+  let modalRef = document.getElementById("modal");
+  modalRef.style.display = "none";
 }

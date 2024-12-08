@@ -8,12 +8,12 @@
     <link rel="icon" type="image/x-icon" href="./assets/Favicon/favicon.ico" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./styles/standard.css" />
-    <link rel="stylesheet" href="./styles/media.css">
+    <link rel="stylesheet" href="./styles/media.css" />
 
     <script src="./scripts/db.js"></script>
     <script src="./scripts/template.js"></script>
-    <script src="./scripts/storage.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/overlay.js"></script>
   </head>
   <body onload="init()">
     <header>
@@ -22,28 +22,40 @@
 
     <div class="main-container">
       <div class="content">
-        <div class="top-picture"></div>
+        <div class="top-picture">
+          <img id="restaurant-icon" src="./assets/icons/icon-7359529_1280.png" alt="">
+        </div>
 
-        <div class="restaurant-info"></div>
+        <div class="restaurant-info">
+          <h3>Toskana Italia</h3>
+          <span class="rating">Bewertung (4,2 von 5 Sternen)</span>
+          
+        </div>
+        <nav>
+          <img src="./assets/icons/double_arrow.png" alt="" />
+          <a href="#Hauptgerichte">Hauptgerichte</a>
+          <a href="#Beilagen">Beilagen</a>
+          <a href="#Desserts">Dessert</a>
+        </nav>
 
-        <div class="middle-picture"></div>
+        <div id="Hauptgerichte" class="middle-picture"></div>
 
         <section id="mainDishes" class="main-dishes">
-          <h2>Hauptgerichte</h2>
+          <h2 >Hauptgerichte</h2>
         </section>
 
         <div class="side-dish-img"></div>
         <section id="sideDishes" class="side-dishes">
-          <h2>Beilagen</h2>
+          <h2 id="Beilagen">Beilagen</h2>
         </section>
 
         <div class="dessert-img"></div>
 
         <section id="dessertDishes" class="dessert-dishes">
-          <h2>Desserts</h2>
+          <h2 id="Desserts">Desserts</h2>
         </section>
       </div>
-      <div class="baket-container">
+      <div id="basketContainer" class="basket-container">
         <div class="your-basket">
           <h2>Warenkorb</h2>
           <div class="switch-btn">
@@ -92,8 +104,24 @@
                 <td class="bold td-right" id="allRoundPrice"></td>
               </tr>
             </table>
+            <div onclick="takeOrder()" class="order-btn">
+              <h3>Bestellen</h3>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div id="basketBtn" class="basket-btn">
+      <div onclick="openOverlay()" id="openOverlay">
+        <h3>Warenkorb</h3>
+      </div>
+    </div>
+
+    <div id="modal" class="order-received">
+      <div class="modal-content">
+        <span>Vielen Dank für Ihre Testbestellung!!</span>
+        <span onclick="closeModal()" id="closeModal">Schließen</span>
       </div>
     </div>
   </body>
