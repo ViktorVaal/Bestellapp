@@ -291,3 +291,14 @@ h3 {
   padding: 8px 12px;
   border-radius: 2px;
 }
+
+footer {
+  background-color: #ff8000;
+  display: flex;
+  justify-content: center;
+}
+
+footer img {
+  height: 80px;
+  padding: 16px 8px;
+}
