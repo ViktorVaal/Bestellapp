@@ -37,7 +37,7 @@
 }
 
 @media (max-width: 400px) {
-  #restaurant-icon{
+  #restaurant-icon {
     height: 80px;
     transform: translateY(115px);
   }
