@@ -42,7 +42,12 @@ function addMainDishToBasket(index) {
     document.getElementById("totalPrice").classList.remove("d-none");
     renderBasketMeals();
     calculation();
-  }
+  } 
+}
+
+function countUpMainDish(index) {
+  let basketDishIndex = basket.findIndex((elem) => elem["name"] === myDishes[0].mainDishes[index].name);
+    countUp(basketDishIndex)
 }
 
 function addSideDishToBasket(index) {
@@ -55,6 +60,11 @@ function addSideDishToBasket(index) {
   }
 }
 
+function countUpSideDish(index) {
+  let basketDishIndex = basket.findIndex((elem) => elem["name"] === myDishes[0].sideDishes[index].name);
+    countUp(basketDishIndex)
+}
+
 function addDessertToBasket(index) {
   let dish = myDishes[0].desserts[index];
   if (basket.includes(dish) === false) {
@@ -63,6 +73,11 @@ function addDessertToBasket(index) {
     renderBasketMeals();
     calculation();
   }
+}
+
+function countUpDessert(index) {
+  let basketDishIndex = basket.findIndex((elem) => elem["name"] === myDishes[0].desserts[index].name);
+    countUp(basketDishIndex)
 }
 
 function renderBasketMeals() {

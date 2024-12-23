@@ -7,7 +7,7 @@ function mainDishesTemplate(mainIndex) {
               <span class="dish-price">${myDishes[0].mainDishes[mainIndex].price.toFixed(2).replace(".", ",")}€</span>
             </div>
 
-            <div class="btn" >
+            <div onclick="countUpMainDish(${mainIndex})" class="btn" >
               +
             </div>
           </div>`
@@ -22,7 +22,7 @@ function sideDishtemplate(sideIndex) {
               <span class="dish-price">${myDishes[0].sideDishes[sideIndex].price.toFixed(2).replace(".", ",")}€</span>
             </div>
 
-            <div class="btn" >
+            <div onclick="countUpSideDish(${sideIndex})" class="btn" >
               +
             </div>
           </div>`
@@ -37,7 +37,7 @@ function dessertTemplate(dessertIndex){
               <span class="dish-price">${myDishes[0].desserts[dessertIndex].price.toFixed(2).replace(".", ",")}€</span>
             </div>
 
-            <div class="btn" >
+            <div onclick="countUpDessert(${dessertIndex})" class="btn" >
               +
             </div>
           </div>`
