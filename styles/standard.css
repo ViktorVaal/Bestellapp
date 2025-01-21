@@ -52,3 +52,7 @@ body {
   position: sticky;
   top: 0;
 }
+
+.overflow-hidden {
+  overflow: hidden;
+}

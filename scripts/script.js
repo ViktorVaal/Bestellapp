@@ -169,6 +169,8 @@ function clacTotalPrice() {
 }
 
 function openOverlay() {
+  let bodyRef = document.getElementById("body");
+  bodyRef.classList.toggle("overflow-hidden");
   let overlayRef = document.getElementById("basketContainer");
   overlayRef.classList.toggle("height-100");
 }
@@ -185,6 +187,7 @@ function takeOrder() {
 function OpenModal() {
   let modalRef = document.getElementById("modal");
   modalRef.style.display = "flex";
+  
 }
 
 function closeModal() {
