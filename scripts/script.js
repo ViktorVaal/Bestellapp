@@ -114,8 +114,7 @@ function calcPortions() {
   for (let index = 0; index < basket.length; index++) {
     portions.innerHTML = basket[index].amount;
     let newMealPrice = basket[index].amount * basket[index].price;
-    mealPrice[index].innerHTML =
-      newMealPrice.toFixed(2).replace(".", ",") + "€";
+    mealPrice[index].innerHTML = newMealPrice.toFixed(2).replace(".", ",") + "€";
   }
 }
 
@@ -156,8 +155,8 @@ function calcSubtotal() {
   let mealPrice = document.getElementsByClassName("meal-price");
   for (let index = 0; index < mealPrice.length; index++) {
     subTotal += parseFloat(mealPrice[index].innerHTML.replace(",", "."));
-    subTotalRef.innerHTML = subTotal.toFixed(2).replace(".", ",") + "€";
   }
+  subTotalRef.innerHTML = subTotal.toFixed(2).replace(".", ",") + "€";
 }
 
 function clacTotalPrice() {
