@@ -1,3 +1,136 @@
+/**
+ * Initializes the application by rendering main dishes, side dishes, and desserts.
+ */
+function init() {}
+
+/**
+ * Performs the calculation of delivery price, portions, subtotal, and total price.
+ */
+function calculation() {}
+
+/**
+ * Renders the main dishes in the main dish container.
+ */
+function renderMainDishes() {}
+
+/**
+ * Renders the side dishes in the side dish container.
+ */
+function renderSideDishes() {}
+
+/**
+ * Renders the desserts in the dessert container.
+ */
+function renderDesserts() {}
+
+/**
+ * Adds a main dish to the basket and updates the total price.
+ * @param {number} index - The index of the main dish to add.
+ */
+function addMainDishToBasket(index) {}
+
+/**
+ * Increases the quantity of a main dish in the basket.
+ * @param {number} index - The index of the main dish to increase.
+ */
+function countUpMainDish(index) {}
+
+/**
+ * Adds a side dish to the basket and updates the total price.
+ * @param {number} index - The index of the side dish to add.
+ */
+function addSideDishToBasket(index) {}
+
+/**
+ * Increases the quantity of a side dish in the basket.
+ * @param {number} index - The index of the side dish to increase.
+ */
+function countUpSideDish(index) {}
+
+/**
+ * Adds a dessert to the basket and updates the total price.
+ * @param {number} index - The index of the dessert to add.
+ */
+function addDessertToBasket(index) {}
+
+/**
+ * Increases the quantity of a dessert in the basket.
+ * @param {number} index - The index of the dessert to increase.
+ */
+function countUpDessert(index) {}
+
+/**
+ * Renders the meals in the basket.
+ */
+function renderBasketMeals() {}
+
+/**
+ * Increases the quantity of a dish in the basket.
+ * @param {number} index - The index of the dish to increase.
+ */
+function countUp(index) {}
+
+/**
+ * Decreases the quantity of a dish in the basket and removes it if the quantity is zero.
+ * @param {number} index - The index of the dish to decrease.
+ */
+function countDown(index) {}
+
+/**
+ * Calculates the portions and updates the meal prices in the basket.
+ */
+function calcPortions() {}
+
+/**
+ * Deletes a meal from the basket and updates the total price.
+ * @param {number} index - The index of the meal to delete.
+ */
+function deleteBasketMeal(index) {}
+
+/**
+ * Switches to delivery mode and updates the delivery price and total price.
+ */
+function switchToDelivery() {}
+
+/**
+ * Switches to takeaway mode and updates the delivery price and total price.
+ */
+function switchToTakeaway() {}
+
+/**
+ * Updates the delivery price based on the selected mode.
+ */
+function deliveryPrice() {}
+
+/**
+ * Calculates the subtotal of the meals in the basket.
+ */
+function calcSubtotal() {}
+
+/**
+ * Calculates the total price including delivery and subtotal.
+ */
+function clacTotalPrice() {}
+
+/**
+ * Toggles the visibility of the basket overlay.
+ */
+function openOverlay() {}
+
+/**
+ * Takes the order, resets the basket, and opens the modal.
+ */
+function takeOrder() {}
+
+/**
+ * Opens the modal.
+ */
+function OpenModal() {}
+
+/**
+ * Closes the modal.
+ */
+function closeModal() {}
 let priceIndex;
 let calculatedPrice;
 
